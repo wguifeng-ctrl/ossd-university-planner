@@ -12,48 +12,48 @@ section = Request("section")
 
 If appID = "" Then Response.Redirect "/oup/applications/dashboard.asp"
 
-' Section definitions
-sections(0) = "hook": sectionNames(0) = "1. Opening Hook (引言)"
-prompts(0) = "用一个吸引人的开场抓住招生官的注意力。可以是一个个人故事、一个挑战、一个顿悟时刻，或者一个与你选择专业相关的经历。" & vbCrLf & vbCrLf & _
-             "💡 Tips: " & vbCrLf & _
-             "• 避免陈词滥调（从小就想当医生）" & vbCrLf & _
-             "• 展示而非告知 - 用具体细节" & vbCrLf & _
-             "• 100-150词为宜"
+' Section definitions - Using ASCII only for VBScript code blocks
+sections(0) = "hook": sectionNames(0) = "1. Opening Hook"
+prompts(0) = "Use an engaging opening to capture the admission officer's attention. This could be a personal story, a challenge, a moment of insight, or an experience related to your chosen field." & vbCrLf & vbCrLf & _
+             "Tips: " & vbCrLf & _
+             "- Avoid cliches (I always wanted to be a doctor since childhood)" & vbCrLf & _
+             "- Show rather than tell - use specific details" & vbCrLf & _
+             "- Target 100-150 words"
 
-sections(1) = "academic": sectionNames(1) = "2. Academic Interest (学术兴趣)"
-prompts(1) = "阐述你对所选专业的学术兴趣是如何产生的。描述相关的学习经历、读过的书、参加的项目或研究。" & vbCrLf & vbCrLf & _
-             "💡 Tips: " & vbCrLf & _
-             "• 连接具体课程或老师的影响" & vbCrLf & _
-             "• 展示你对领域的深入理解" & vbCrLf & _
-             "• 提及OSSD相关课程（如ENG4U、MHF4U等）" & vbCrLf & _
-             "• 200-250词"
+sections(1) = "academic": sectionNames(1) = "2. Academic Interest"
+prompts(1) = "Explain how your academic interest in the chosen field developed. Describe relevant learning experiences, books read, projects or research participated in." & vbCrLf & vbCrLf & _
+             "Tips: " & vbCrLf & _
+             "- Connect to specific courses or teachers who influenced you" & vbCrLf & _
+             "- Demonstrate deep understanding of the field" & vbCrLf & _
+             "- Mention relevant OSSD courses (ENG4U, MHF4U, etc.)" & vbCrLf & _
+             "- Target 200-250 words"
 
-sections(2) = "experience": sectionNames(2) = "3. Relevant Experience (相关经历)"
-prompts(2) = "描述支持申请的经历：义工、实习、社团、竞赛、项目等。强调你学到的技能和成长。" & vbCrLf & vbCrLf & _
-             "💡 Tips: " & vbCrLf & _
-             "• 使用STAR法则：情境-任务-行动-结果" & vbCrLf & _
-             "• 量化成果（组织了50人活动，筹款$2000）" & vbCrLf & _
-             "• 突出领导力和主动性" & vbCrLf & _
-             "• 200-250词"
+sections(2) = "experience": sectionNames(2) = "3. Relevant Experience"
+prompts(2) = "Describe experiences that support your application: volunteering, internships, clubs, competitions, projects. Emphasize skills learned and personal growth." & vbCrLf & vbCrLf & _
+             "Tips: " & vbCrLf & _
+             "- Use STAR method: Situation-Task-Action-Result" & vbCrLf & _
+             "- Quantify achievements (organized 50-person event, raised $2000)" & vbCrLf & _
+             "- Highlight leadership and initiative" & vbCrLf & _
+             "- Target 200-250 words"
 
-sections(3) = "career": sectionNames(3) = "4. Career Goals (职业目标)"
-prompts(3) = "这个学位如何帮助你实现短期和长期职业目标？你想为社会带来什么影响？" & vbCrLf & vbCrLf & _
-             "💡 Tips: " & vbCrLf & _
-             "• 具体而非笼统（不说'让世界更好'）" & vbCrLf & _
-             "• 连接大学资源（特定项目、实验室、教授）" & vbCrLf & _
-             "• 展示对行业的了解" & vbCrLf & _
-             "• 150-200词"
+sections(3) = "career": sectionNames(3) = "4. Career Goals"
+prompts(3) = "How will this degree help you achieve short-term and long-term career goals? What impact do you want to make on society?" & vbCrLf & vbCrLf & _
+             "Tips: " & vbCrLf & _
+             "- Be specific rather than vague (avoid make the world better)" & vbCrLf & _
+             "- Connect to university resources (programs, labs, professors)" & vbCrLf & _
+             "- Show understanding of the industry" & vbCrLf & _
+             "- Target 150-200 words"
 
-sections(4) = "conclusion": sectionNames(4) = "5. Conclusion (结尾)"
-prompts(4) = "给招生官留下深刻印象的收尾。总结你的核心观点，重申你为什么适合这个项目。" & vbCrLf & vbCrLf & _
-             "💡 Tips: " & vbCrLf & _
-             "• 回到开头的主题，形成呼应" & vbCrLf & _
-             "• 展望未来，表达期待" & vbCrLf & _
-             "• 坚定而有信心，但不傲慢" & vbCrLf & _
-             "• 100词左右"
+sections(4) = "conclusion": sectionNames(4) = "5. Conclusion"
+prompts(4) = "Leave a lasting impression on the admission officer. Summarize your core message and reaffirm why you are a good fit for this program." & vbCrLf & vbCrLf & _
+             "Tips: " & vbCrLf & _
+             "- Return to opening theme to create connection" & vbCrLf & _
+             "- Look to the future with confidence" & vbCrLf & _
+             "- Be confident but not arrogant" & vbCrLf & _
+             "- Target around 100 words"
 
-sections(5) = "final": sectionNames(5) = "6. Final Review (完整预览)"
-prompts(5) = "查看完整的个人陈述，检查连贯性和字数。建议总字数控制在800-1000词。"
+sections(5) = "final": sectionNames(5) = "6. Final Review"
+prompts(5) = "Review the complete personal statement for coherence and word count. Recommended total length: 800-1000 words."
 
 If section = "" Then section = "hook"
 
@@ -105,7 +105,7 @@ function updateCount() {
 </script>
 
 <div class="card">
-    <h2>✍️ Personal Statement Editor</h2>
+    <h2>Personal Statement Editor</h2>
     <p><strong>Application:</strong> <%=rsApp("UniName")%> - <%=rsApp("ProgramName")%><br>
     <strong>Status:</strong> <%=rsApp("Status")%></p>
 </div>
@@ -123,7 +123,7 @@ function updateCount() {
     <% If section = "final" Then %>
         <!-- Final Review -->
         <div class="card">
-            <h3>📄 Complete Personal Statement</h3>
+            <h3>Complete Personal Statement</h3>
             <div style="background:#f8f9fa; padding:25px; border-radius:8px; line-height:1.8; font-family:Georgia,serif;">
                 <% For i = 0 To 4 %>
                     <div style="margin-bottom:30px; border-left:3px solid #003366; padding-left:15px;">
@@ -134,7 +134,7 @@ function updateCount() {
             </div>
             
             <div style="text-align:center; margin-top:20px;">
-                <a href="/oup/applications/ps_save.asp?app=<%=appID%>&action=finalize" class="btn btn-success" onclick="return confirm('Mark this PS as final version?')">✓ Mark as Final</a>
+                <a href="/oup/applications/ps_save.asp?app=<%=appID%>&action=finalize" class="btn btn-success" onclick="return confirm('Mark this PS as final version?')">Mark as Final</a>
                 <a href="/oup/applications/dashboard.asp" class="btn btn-primary">Back to Dashboard</a>
             </div>
         </div>
@@ -144,7 +144,7 @@ function updateCount() {
             <h3><%=sectionNames(GetSectionIndex(section))%></h3>
             
             <div class="alert alert-info" style="margin-bottom:20px;">
-                <strong>💡 Writing Guide:</strong><br>
+                <strong>Writing Guide:</strong><br>
                 <pre style="background:none; margin:0; white-space:pre-wrap; font-family:inherit;"><%=prompts(GetSectionIndex(section))%></pre>
             </div>
             
@@ -158,16 +158,16 @@ function updateCount() {
                 </div>
                 
                 <div style="display:flex; gap:10px; justify-content:center;">
-                    <button type="submit" class="btn btn-primary">💾 Save Draft</button>
+                    <button type="submit" class="btn btn-primary">Save Draft</button>
                     
                     <% Dim prevSec, nextSec
                     prevSec = GetPrevSection(section)
                     nextSec = GetNextSection(section)
                     If prevSec <> "" Then %>
-                        <a href="?app=<%=appID%>&section=<%=prevSec%>" class="btn btn-warning">← Previous</a>
+                        <a href="?app=<%=appID%>&section=<%=prevSec%>" class="btn btn-warning">Previous</a>
                     <% End If
                     If nextSec <> "" Then %>
-                        <a href="?app=<%=appID%>&section=<%=nextSec%>" class="btn btn-success">Next →</a>
+                        <a href="?app=<%=appID%>&section=<%=nextSec%>" class="btn btn-success">Next</a>
                     <% End If %>
                 </div>
             </form>
@@ -175,7 +175,7 @@ function updateCount() {
         
         <!-- Version History -->
         <div class="card">
-            <h4>📝 Version History for This Section</h4>
+            <h4>Version History for This Section</h4>
             <table class="data-table">
                 <thead>
                     <tr>
