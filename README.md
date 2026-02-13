@@ -240,8 +240,8 @@ OUP/
 
 ### Stack
 - **Language**: VBScript (Classic ASP)
-- **Database**: Microsoft Access (.accdb)
-- **Connection**: OLEDB with ACE provider
+- **Database**: Microsoft Access 2000-2003 (.mdb) with Jet 4.0
+- **Connection**: OLEDB with Microsoft.Jet.OLEDB.4.0 provider
 - **Styling**: Custom CSS with CSS Grid/Flexbox
 - **HTTP Testing**: MSXML2.ServerXMLHTTP
 
