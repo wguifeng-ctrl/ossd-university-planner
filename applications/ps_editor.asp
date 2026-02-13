@@ -12,54 +12,34 @@ section = Request("section")
 
 If appID = "" Then Response.Redirect "/oup/applications/dashboard.asp"
 
-' Section definitions - Using ASCII only for VBScript code blocks
-sections(0) = "hook": sectionNames(0) = "1. Opening Hook"
-prompts(0) = "Use an engaging opening to capture the admission officer's attention. This could be a personal story, a challenge, a moment of insight, or an experience related to your chosen field." & vbCrLf & vbCrLf & _
-             "Tips: " & vbCrLf & _
-             "- Avoid cliches (I always wanted to be a doctor since childhood)" & vbCrLf & _
-             "- Show rather than tell - use specific details" & vbCrLf & _
-             "- Target 100-150 words"
+sections(0) = "hook"
+sectionNames(0) = "1. Opening Hook"
+prompts(0) = "Use an engaging opening to capture the admission officer's attention. This could be a personal story, a challenge, a moment of insight, or an experience related to your chosen field." & vbCrLf & vbCrLf & "Tips: " & vbCrLf & "- Avoid cliches (I always wanted to be a doctor since childhood)" & vbCrLf & "- Show rather than tell - use specific details" & vbCrLf & "- Target 100-150 words"
 
-sections(1) = "academic": sectionNames(1) = "2. Academic Interest"
-prompts(1) = "Explain how your academic interest in the chosen field developed. Describe relevant learning experiences, books read, projects or research participated in." & vbCrLf & vbCrLf & _
-             "Tips: " & vbCrLf & _
-             "- Connect to specific courses or teachers who influenced you" & vbCrLf & _
-             "- Demonstrate deep understanding of the field" & vbCrLf & _
-             "- Mention relevant OSSD courses (ENG4U, MHF4U, etc.)" & vbCrLf & _
-             "- Target 200-250 words"
+sections(1) = "academic"
+sectionNames(1) = "2. Academic Interest"
+prompts(1) = "Explain how your academic interest in the chosen field developed. Describe relevant learning experiences, books read, projects or research participated in." & vbCrLf & vbCrLf & "Tips: " & vbCrLf & "- Connect to specific courses or teachers who influenced you" & vbCrLf & "- Demonstrate deep understanding of the field" & vbCrLf & "- Mention relevant OSSD courses (ENG4U, MHF4U, etc.)" & vbCrLf & "- Target 200-250 words"
 
-sections(2) = "experience": sectionNames(2) = "3. Relevant Experience"
-prompts(2) = "Describe experiences that support your application: volunteering, internships, clubs, competitions, projects. Emphasize skills learned and personal growth." & vbCrLf & vbCrLf & _
-             "Tips: " & vbCrLf & _
-             "- Use STAR method: Situation-Task-Action-Result" & vbCrLf & _
-             "- Quantify achievements (organized 50-person event, raised $2000)" & vbCrLf & _
-             "- Highlight leadership and initiative" & vbCrLf & _
-             "- Target 200-250 words"
+sections(2) = "experience"
+sectionNames(2) = "3. Relevant Experience"
+prompts(2) = "Describe experiences that support your application: volunteering, internships, clubs, competitions, projects. Emphasize skills learned and personal growth." & vbCrLf & vbCrLf & "Tips: " & vbCrLf & "- Use STAR method: Situation-Task-Action-Result" & vbCrLf & "- Quantify achievements (organized 50-person event, raised $2000)" & vbCrLf & "- Highlight leadership and initiative" & vbCrLf & "- Target 200-250 words"
 
-sections(3) = "career": sectionNames(3) = "4. Career Goals"
-prompts(3) = "How will this degree help you achieve short-term and long-term career goals? What impact do you want to make on society?" & vbCrLf & vbCrLf & _
-             "Tips: " & vbCrLf & _
-             "- Be specific rather than vague (avoid make the world better)" & vbCrLf & _
-             "- Connect to university resources (programs, labs, professors)" & vbCrLf & _
-             "- Show understanding of the industry" & vbCrLf & _
-             "- Target 150-200 words"
+sections(3) = "career"
+sectionNames(3) = "4. Career Goals"
+prompts(3) = "How will this degree help you achieve short-term and long-term career goals? What impact do you want to make on society?" & vbCrLf & vbCrLf & "Tips: " & vbCrLf & "- Be specific rather than vague (avoid make the world better)" & vbCrLf & "- Connect to university resources (programs, labs, professors)" & vbCrLf & "- Show understanding of the industry" & vbCrLf & "- Target 150-200 words"
 
-sections(4) = "conclusion": sectionNames(4) = "5. Conclusion"
-prompts(4) = "Leave a lasting impression on the admission officer. Summarize your core message and reaffirm why you are a good fit for this program." & vbCrLf & vbCrLf & _
-             "Tips: " & vbCrLf & _
-             "- Return to opening theme to create connection" & vbCrLf & _
-             "- Look to the future with confidence" & vbCrLf & _
-             "- Be confident but not arrogant" & vbCrLf & _
-             "- Target around 100 words"
+sections(4) = "conclusion"
+sectionNames(4) = "5. Conclusion"
+prompts(4) = "Leave a lasting impression on the admission officer. Summarize your core message and reaffirm why you are a good fit for this program." & vbCrLf & vbCrLf & "Tips: " & vbCrLf & "- Return to opening theme to create connection" & vbCrLf & "- Look to the future with confidence" & vbCrLf & "- Be confident but not arrogant" & vbCrLf & "- Target around 100 words"
 
-sections(5) = "final": sectionNames(5) = "6. Final Review"
+sections(5) = "final"
+sectionNames(5) = "6. Final Review"
 prompts(5) = "Review the complete personal statement for coherence and word count. Recommended total length: 800-1000 words."
 
 If section = "" Then section = "hook"
 
 Call OpenConnection()
 
-' Verify application belongs to student
 Dim rsApp
 Set rsApp = conn.Execute("SELECT a.*, u.Name AS UniName, p.ProgramName FROM (Applications a LEFT JOIN Universities u ON a.UniID = u.ID) LEFT JOIN Programs p ON a.ProgramID = p.ID WHERE a.ID=" & appID & " AND a.StudentID=" & studentID)
 
@@ -89,7 +69,6 @@ End Function
 function wordCount(str) {
     return str.trim().split(/\s+/).filter(function(n) { return n !== '' }).length;
 }
-
 function updateCount() {
     var text = document.getElementById('psContent').value;
     var count = wordCount(text);
@@ -111,7 +90,6 @@ function updateCount() {
 </div>
 
 <div class="ps-wizard">
-    <!-- Section Navigation -->
     <div class="step-nav">
         <% For i = 0 To 5 %>
             <a href="?app=<%=appID%>&section=<%=sections(i)%>" class="<% If sections(i) = section Then Response.Write "active" %>">
@@ -121,7 +99,6 @@ function updateCount() {
     </div>
     
     <% If section = "final" Then %>
-        <!-- Final Review -->
         <div class="card">
             <h3>Complete Personal Statement</h3>
             <div style="background:#f8f9fa; padding:25px; border-radius:8px; line-height:1.8; font-family:Georgia,serif;">
@@ -132,34 +109,27 @@ function updateCount() {
                     </div>
                 <% Next %>
             </div>
-            
             <div style="text-align:center; margin-top:20px;">
                 <a href="/oup/applications/ps_save.asp?app=<%=appID%>&action=finalize" class="btn btn-success" onclick="return confirm('Mark this PS as final version?')">Mark as Final</a>
                 <a href="/oup/applications/dashboard.asp" class="btn btn-primary">Back to Dashboard</a>
             </div>
         </div>
     <% Else %>
-        <!-- Section Editor -->
         <div class="card">
             <h3><%=sectionNames(GetSectionIndex(section))%></h3>
-            
             <div class="alert alert-info" style="margin-bottom:20px;">
                 <strong>Writing Guide:</strong><br>
                 <pre style="background:none; margin:0; white-space:pre-wrap; font-family:inherit;"><%=prompts(GetSectionIndex(section))%></pre>
             </div>
-            
             <form method="post" action="/oup/applications/ps_save.asp">
                 <input type="hidden" name="appID" value="<%=appID%>">
                 <input type="hidden" name="section" value="<%=section%>">
-                
                 <div class="form-group">
                     <label>Your Writing <span id="wordCount" style="float:right; font-weight:bold;">0 words</span></label>
                     <textarea name="content" id="psContent" class="form-control ps-textarea" onkeyup="updateCount()" placeholder="Start writing here..."><%=Server.HTMLEncode(currentContent)%></textarea>
                 </div>
-                
                 <div style="display:flex; gap:10px; justify-content:center;">
                     <button type="submit" class="btn btn-primary">Save Draft</button>
-                    
                     <% Dim prevSec, nextSec
                     prevSec = GetPrevSection(section)
                     nextSec = GetNextSection(section)
@@ -172,17 +142,11 @@ function updateCount() {
                 </div>
             </form>
         </div>
-        
-        <!-- Version History -->
         <div class="card">
             <h4>Version History for This Section</h4>
             <table class="data-table">
                 <thead>
-                    <tr>
-                        <th>Version</th>
-                        <th>Date</th>
-                        <th>Preview</th>
-                    </tr>
+                    <tr><th>Version</th><th>Date</th><th>Preview</th></tr>
                 </thead>
                 <tbody>
                 <%
